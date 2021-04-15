@@ -1,4 +1,4 @@
-import classes from './Links.module.css';
+import classes from 'src/components/Links/Links.module.css';
 
 //Linkの要素を配列で保持しておく
 //基本変わらないもの(不変のもの)は大文字で書くと○
