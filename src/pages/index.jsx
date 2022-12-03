@@ -1,21 +1,29 @@
-import Head from 'next/head';
-import { Footer } from 'src/components/Footer';
-import { Header } from 'src/components/Header';
-import { Main } from 'src/components/Main';
-import styles from 'src/styles/Home.module.css';
-import { useCallback } from 'react';
+import Head from "next/head";
+import { Footer } from "src/components/Footer";
+import { Header } from "src/components/Header";
+import { Main } from "src/components/Main";
+import styles from "src/styles/Home.module.css";
+import { useCallback, useEffect } from "react";
 
-
-
-console.log(11123123123)
+console.log(11123123123);
 
 export default function Home() {
+  // const handelClick = useCallback((e) => {
+  //     console.log(e.target.href)
+  //     e.preventDefault
+  //     console.log(1233)
+  //     alert(321)
+  // }, [])
 
-  const handelClick = useCallback((e) => {
-    console.log(e.target.href)
-    e.preventDefault;
-    console.log(1233)
-    alert(321)}, [])
+  useEffect(() => {
+    document.body.style.backgroundColor = "lightblue";
+    console.log("mounting");
+    return () => {
+      document.body.style.backgroundColor = "";
+      console.log("unmounting");
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -23,8 +31,10 @@ export default function Home() {
       </Head>
       <Header />
       {/* <button onClick={() => alert(123)}>Button</button> */}
-      <a href="/about" onClick={handelClick}>Button</a>
-      <Main page='index' />
+      {/* <a href="/about" onClick={handelClick}>
+                Button
+            </a> */}
+      <Main page="index" />
       <Footer />
     </div>
   );
